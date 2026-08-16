@@ -6,8 +6,8 @@ public class ReverseArray {
         int leftPointer = 0 ;
         int rightPointer = array.length-1;
         while (leftPointer < rightPointer){
-            int temp = array[leftPointer];
-            array[leftPointer] = array[rightPointer];
+            int temp = array[leftPointer];//T-56
+            array[leftPointer] = array[rightPointer];//L-235
             array[rightPointer] = temp;
             leftPointer++;
             rightPointer--;
