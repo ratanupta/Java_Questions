@@ -25,3 +25,8 @@ public class RemoveDuplicates {
         }
     }
 }
+//  logic is to sort the array and then use two pointers to find unique elements.
+//  The first pointer (uniqueElements) keeps track of the last unique element found,
+//  while the second pointer (scan) scans through the array. When a new unique element is found,
+//  it is placed in the position after the last unique element.
+//  Finally, we print all unique elements from index 0 to uniqueElements.
