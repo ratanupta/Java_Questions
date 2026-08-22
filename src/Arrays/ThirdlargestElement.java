@@ -1,29 +1,34 @@
 package Arrays;
 
+import java.util.Arrays;
+
 public class ThirdlargestElement {
     public static void main(String[] args){
-        int[] arr = {35, 32, 10254, 23, 74, 1};
-        int largest = Integer.MIN_VALUE;
+        int[] array = {99, 6, 43, 2, 3, 56, 7, 0, 1};
+        int length = array.length;
+        int firstLargest = Integer.MIN_VALUE;
         int secondLargest = Integer.MIN_VALUE;
         int thirdLargest = Integer.MIN_VALUE;
-        for(int i = 0 ; i < arr.length ; i++){
-            if(arr[i] > largest){
+        Arrays.sort(array);
+        for(int i = 0 ; i < length ; i++){
+            if(array[i] > firstLargest){
                 thirdLargest = secondLargest;
-                secondLargest = largest;
-                largest = arr[i];
+                secondLargest = firstLargest;
+                firstLargest = array[i];
             }
-            else if(arr[i] > secondLargest && largest != secondLargest){
+            else if (array[i] > secondLargest && array[i] != firstLargest){
                 thirdLargest = secondLargest;
-                secondLargest = arr[i];
+                secondLargest = array[i];
             }
             else {
-                if(arr[i] > thirdLargest && thirdLargest != secondLargest && arr[i] != largest){
-                    thirdLargest = arr[i];
+                if(array[i] > thirdLargest && array[i] != secondLargest && array[i] != firstLargest){
+                    thirdLargest = array[i];
                 }
             }
         }
-
-        System.out.print("Third largest elements in the array is:" + thirdLargest);
+        System.out.println("First Largest: " + firstLargest);
+        System.out.println("Second Largest: " + secondLargest);
+        System.out.println("Third Largest: " + thirdLargest);
     }
 
 }
