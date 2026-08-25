@@ -14,26 +14,24 @@ public class Sort0s1s2s {
     }
 
     public void sortColors(int[] nums) {
-        int low = 0;
-        int mid = 0;
-        int high = nums.length - 1;
-        while (mid <= high) {
-            if (nums[mid] == 0) {
-                swapping(nums, mid, low);
-                low++;
-                mid++;
-            } else if (nums[mid] == 1) {
-                mid++;
+        int zero = 0;
+        int one = 0;
+        int two = nums.length - 1;
+        while (one <= two) {
+            if (nums[one] == 0) {
+                swapping(nums, zero, one);
+                zero++;
+                one++;
+            } else if (nums[one] == 1) {
+                one++;
             } else {
-                swapping(nums, mid, high);
-                high--;
+                swapping(nums, one, two);
+                two--;
             }
-
         }
-        for (int num : nums) {
-            System.out.print(num + " ");
+        for(int arr : nums){
+            System.out.print(arr + " ");
         }
-        System.out.println();
 
     }
 
