@@ -8,20 +8,23 @@ public class BinarySerach {
         BinarySerach binarySerach = new BinarySerach();
         int target = 78;
         int result = binarySerach.binaSearch(array, target);
-        System.out.print("Index value of target is :" + result +"also values of index values is"+ array[result]);
+        System.out.print("Index value of target is :" + result + "\nalso values of index values is"+ array[result]);
     }
 
     public int binaSearch(int[] array, int target) {
-        int smallPart = 0;
-        int highestPart = array.length - 1;
-        int middlePart = smallPart + (highestPart - smallPart) / 2;
-        while (smallPart < highestPart) {
-            if (array[middlePart] == target) {
+        int leftPart = 0;
+        int rightPart = array.length-1;
+        int middlePart = leftPart + (rightPart -leftPart) /2;
+        while(leftPart < rightPart){
+            if(array[middlePart] == target){
                 return middlePart;
-            } else if (array[middlePart] > target) {
-                smallPart = middlePart + 1;
-            } else {
-                highestPart = middlePart - 1;
+            } else if (array[middlePart] < target) {
+                rightPart = middlePart-1;
+                rightPart--;
+            }
+            else {
+                leftPart = middlePart+1;
+                leftPart++;
             }
         }
         return -1;
