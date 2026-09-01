@@ -16,24 +16,22 @@ public class FourSum2 {
     }
 
     public int fourSumCount(int[] nums1, int[] nums2, int[] nums3, int[] nums4) {
-        Map<Integer, Integer> result = new HashMap<>();
-        // first two array
-        for (int i = 0; i < nums1.length; i++) {
-            for (int j = 0; j < nums2.length; j++) {
+        Map<Integer, Integer> map = new HashMap<>();
+        for(int i = 0 ; i < nums1.length-1 ;i++ ){
+            for(int j = 0 ;j < nums2.length ;j++){
                 int sum = nums1[i] + nums2[j];
-                result.put(sum, result.getOrDefault(sum, 0) + 1);
-            }
-        }
-        //second two array
-        int count = 0;
-        for (int i = 0; i < nums3.length; i++) {
-            for (int j = 0; j < nums4.length; j++) {
-                int sum = nums3[i] + nums4[j];
-                int req = -sum;
-                count += result.getOrDefault(req, 0);
+                map.put(sum ,map.getOrDefault(sum , 0)+1);
             }
         }
 
+        int count = 0;
+        for(int i = 0 ; i < nums3.length ;i++ ){
+            for(int j = 0 ;j < nums4.length ;j++){
+                int sum = nums3[i] + nums4[j];
+                int requiredSum = -sum;
+                count = map.getOrDefault(requiredSum , 0) + count;
+            }
+        }
         return count;
     }
 }
