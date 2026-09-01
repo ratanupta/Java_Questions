@@ -1,32 +1,47 @@
 package Arrays.Searching;
 
-import java.awt.image.BufferedImage;
-
 public class BinarySerach {
+
     public static void main(String[] args) {
-        int[] array = {23, 43, 64, 78, 45, 90, 67};
+
+        int[] array = {23, 43, 45, 64, 67, 78, 90};
+
         BinarySerach binarySerach = new BinarySerach();
+
         int target = 78;
+
         int result = binarySerach.binaSearch(array, target);
-        System.out.print("Index value of target is :" + result + "\nalso values of index values is"+ array[result]);
+
+        System.out.println("Index value of target is: " + result);
+
+        if (result != -1) {
+            System.out.println("Value at index is: " + array[result]);
+        }
     }
 
     public int binaSearch(int[] array, int target) {
+
         int leftPart = 0;
-        int rightPart = array.length-1;
-        int middlePart = leftPart + (rightPart -leftPart) /2;
-        while(leftPart < rightPart){
-            if(array[middlePart] == target){
+        int rightPart = array.length - 1;
+
+        while (leftPart <= rightPart) {
+
+            int middlePart =
+                    leftPart + (rightPart - leftPart) / 2;
+
+            if (array[middlePart] == target) {
                 return middlePart;
-            } else if (array[middlePart] < target) {
-                rightPart = middlePart-1;
-                rightPart--;
             }
+
+            else if (array[middlePart] < target) {
+                leftPart = middlePart + 1;
+            }
+
             else {
-                leftPart = middlePart+1;
-                leftPart++;
+                rightPart = middlePart - 1;
             }
         }
+
         return -1;
     }
 }
