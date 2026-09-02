@@ -17,21 +17,18 @@ public class FourSum2 {
 
     public int fourSumCount(int[] nums1, int[] nums2, int[] nums3, int[] nums4) {
         Map<Integer, Integer> map = new HashMap<>();
-        for(int i = 0 ; i < nums1.length-1 ;i++ ){
-            for(int j = 0 ;j < nums2.length ;j++){
-                int sum = nums1[i] + nums2[j];
-                map.put(sum ,map.getOrDefault(sum , 0)+1);
+        for(int a : nums1) {
+            for(int b : nums2) {
+                map.put(a + b, map.getOrDefault(a + b, 0) + 1);
+            }
+        }
+        int count = 0;
+        for(int c : nums3) {
+            for(int d : nums4) {
+                count += map.getOrDefault(-(c + d), 0);
             }
         }
 
-        int count = 0;
-        for(int i = 0 ; i < nums3.length ;i++ ){
-            for(int j = 0 ;j < nums4.length ;j++){
-                int sum = nums3[i] + nums4[j];
-                int requiredSum = -sum;
-                count = map.getOrDefault(requiredSum , 0) + count;
-            }
-        }
         return count;
     }
 }
