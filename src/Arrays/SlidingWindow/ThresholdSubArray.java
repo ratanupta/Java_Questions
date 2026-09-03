@@ -18,13 +18,10 @@ public class ThresholdSubArray {
         for (int i = 0; i < k; i++) {
             sum += arr[i];
         }
-
         double average = (double) sum / k;
         if (average >= threshold) {
             count++;
         }
-
-
         for (int i = k; i < arr.length; i++) {
             sum = sum - arr[i - k] + arr[i];
             average = (double) sum / k;
